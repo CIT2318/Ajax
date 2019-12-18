@@ -6,11 +6,12 @@ function filterList(evnt)
 {
   //get hold of the id number of the certificate that has been selected
   const id = evnt.target.value
-  console.log("user clicked:"+id)
+  console.log("user clicked certificate:"+id)
   //make an Ajax request to filterFilms.php
 	fetch("filterFilms.php?id="+id).then(function(response) {
 		return response.json();
 	}).then(function(json) {
+    films=json; //store json data as films
     //when we get some films back
     clearFilmList(); //clear the matching-films div element
     //loop over the films
